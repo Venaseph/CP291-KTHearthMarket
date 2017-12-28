@@ -10,13 +10,11 @@ import kotlinx.android.synthetic.main.cardimg_row.view.*
  * Created by cpera on 12/26/2017.
  */
 
-class MainAdapter : RecyclerView.Adapter<CustomViewHolder>() {
-
-    private val cardTitle = listOf<String>("Carniv Cube", "Second Card", "Third Card", "Fourth Card", "Fifth Card", "Sixth Card", "Seventh Card")
+class MainAdapter(val cardFeed: CardFeed) : RecyclerView.Adapter<CustomViewHolder>() {
 
     // numberOfItems
     override fun getItemCount(): Int {
-        return cardTitle.size
+        return cardFeed.Basic.count()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CustomViewHolder {
@@ -27,10 +25,12 @@ class MainAdapter : RecyclerView.Adapter<CustomViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder?, position: Int) {
-        val cardTitles = cardTitle.get(position)
+        //grab stuff from your API Object Model to populate view
+        val card = cardFeed.Basic.get(position)
 
-        holder?.view?.titleView?.text = cardTitles
-
+        holder?.view?.titleView?.text = card.name
+        holder?.view?.infoView?.text = card.text
+        holder?.view?.flavorView?.text = """ "${card.flavor}" """
 
     }
 }
