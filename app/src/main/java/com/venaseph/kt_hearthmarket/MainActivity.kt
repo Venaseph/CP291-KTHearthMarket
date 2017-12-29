@@ -13,9 +13,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        //set layout to linear
         recView_main.layoutManager = LinearLayoutManager(this)
-
+        //fetchJson/populateRows
         fetchJson()
 
     }
@@ -38,11 +38,10 @@ class MainActivity : AppCompatActivity() {
                 val gson = GsonBuilder().create()
                     // to pass type of class to kotlin ::
                 val cardFeed = gson.fromJson(body, CardFeed::class.java)
-
+                    //run adapter on enqueue not main
                 runOnUiThread {
                     recView_main.adapter = MainAdapter(cardFeed)
                 }
-
             }
 
             override fun onFailure(call: Call?, e: IOException?) {
@@ -51,8 +50,3 @@ class MainActivity : AppCompatActivity() {
         })
     }
 }
-
-//model object for feed, public as suggested GSON library vals must match JSON objects key names
-class CardFeed(val Basic: List<Card>)
-class Card(val name: String, val text: String, val flavor: String, val imgGold: String)
-//each subsection[] would go as a "subclass here and get referenced in class model above

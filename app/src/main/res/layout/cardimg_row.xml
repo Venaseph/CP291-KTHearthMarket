@@ -24,6 +24,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="titleView"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
@@ -35,6 +37,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="cardInfo"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/titleView" />
@@ -46,6 +50,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="flavorText"
+        android:textSize="12sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/infoView" />

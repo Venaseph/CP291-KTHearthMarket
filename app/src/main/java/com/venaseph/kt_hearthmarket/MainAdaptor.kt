@@ -25,11 +25,12 @@ class MainAdapter(val cardFeed: CardFeed) : RecyclerView.Adapter<CustomViewHolde
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder?, position: Int) {
-        //grab stuff from your API Object Model to populate view
+        //grab stuff from your API Object Model to populate view from position
         val card = cardFeed.Basic.get(position)
 
         holder?.view?.titleView?.text = card.name
         holder?.view?.infoView?.text = card.text
+        //use of kotlin string interpolation and raw string (""") for literal representation of double quotes
         holder?.view?.flavorView?.text = """ "${card.flavor}" """
 
     }
