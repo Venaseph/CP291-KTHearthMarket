@@ -7,7 +7,7 @@ package com.venaseph.kt_hearthmarket
 //model object for feed, public as suggested GSON library vals must match JSON objects key names
 class CardFeed(val Basic: List<Card>)
 
-class Card(val name: String, val text: String, val flavor: String, val imgGold: String)
+class Card(val name: String, val text: String, val flavor: String, val img: String)
 //each subsection[] would go as a "subclass here and get referenced in class model above
 
 /*

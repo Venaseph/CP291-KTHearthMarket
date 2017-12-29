@@ -21,14 +21,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fetchJson() {
-        //println("Attempting to Fetch JSON")
-        //for API key
         val keyVal = "mSCkyyFuiMmshxkH3QTA6RsLglGGp1GG15ajsnJdGUUoajgNgt"
-        // for API location
         val url = "https://omgvamp-hearthstone-v1.p.mashape.com/cards"
-        // make request object
         val request = Request.Builder().header("X-Mashape-Key", keyVal).url(url).build()
-        //make request client
         val client = OkHttpClient()
         //create request (can't execute http requests on main thread in android so enqueue
         client.newCall(request).enqueue(object: Callback {
@@ -50,3 +45,4 @@ class MainActivity : AppCompatActivity() {
         })
     }
 }
+
